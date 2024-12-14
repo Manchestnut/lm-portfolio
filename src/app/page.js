@@ -1,101 +1,126 @@
+'use client';
+import Head from "next/head";
+import { TiAdjustContrast } from "react-icons/ti";
+import { AiFillLinkedin, AiFillInstagram, AiFillGithub } from "react-icons/ai";
+import { MdDarkMode, MdOutlineDarkMode } from "react-icons/md";
+import { IoDownloadOutline } from "react-icons/io5";
+import { CiLink } from "react-icons/ci";
 import Image from "next/image";
+import { useState, useEffect } from 'react';
 
 export default function Home() {
+  const [darkMode, setDarkMode] = useState(false);
+  const Icon = darkMode ? MdOutlineDarkMode : MdDarkMode;
+  const [scrolled, setScrolled] = useState(false);
+  useEffect(() => {
+    const handleScroll = () => {
+      window.scrollY > 50 ? setScrolled(true) : setScrolled(false)
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              src/app/page.js
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
-
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
-        </div>
+    <div className={darkMode ? 'dark' : ''}>
+      <Head>
+        <title>Portfolio na malupet</title>
+        <meta name="description"></meta>
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
+      <nav className={`h-24 mb-44 fixed w-full ${scrolled ? "bg-teal-100 bg-opacity-50" : "bg-teal-200"} z-10`}>
+        <ul className="flex justify-center gap-8 md:gap-12 items-center h-full text-lg md:text-2xl font-extrabold text-teal-800">
+          <li className=""><a href="#home">Home</a></li>
+          <li className=""><a href="#projects">Projects</a></li>
+          <li className=""><a href="#experience">Experience</a></li>
+        </ul>
+      </nav>
+      <main className="bg-white px-10 dark:bg-gray-950 pt-52" id="home">
+        <section className="min-h-screen">
+          <div className="w-10 flex justify-center p-2 fixed bottom-4 right-4" onClick={() => setDarkMode(!darkMode)}>
+            <Icon className="cursor-pointer text-2xl" />
+          </div>
+          <div className="text-center pb-10">
+            <h2 className="text-5xl py-2 text-teal-600 font-medium text-center">Luke Manongsong</h2>
+            <h3 className="text-2xl py-5 md:text-3xl font-medium text-teal-800">Web Developer</h3>
+            <p className="text-medium py-5 leading-8 text-gray-800 md:text-xl">Recent graduate with a passion for programming and web development.</p>
+            <button className="flex gap-1 items-center mt-6 mx-auto bg-gradient-to-r from-cyan-500 to-teal-500 text-white px-4 py-2 rounded-md text-nowrap cursor-pointer"><IoDownloadOutline className="text-lg" />Download CV</button>
+          </div>
+          <div className="text-5xl flex justify-center gap-16 py-3 text-gray-600">
+            <AiFillLinkedin/>
+            <AiFillInstagram/>
+          </div>
+          {/* <div className="relative mx-auto bg-gradient-to-b from-teal-500 rounded-full w-80 h-80 mt-20 overflow-hidden z-0">
+            <Image src={'/dev-ed-wave.png'} alt="Waving person" layout="fill" objectFit="cover"/>
+          </div> */}
+        </section>
+        <section>
+          <div className="lg:py-15 lg:px-20 py-20" id="projects">
+            <h3 className="text-4xl lg:text-6xl py-5 font-bold text-teal-700">Projects</h3>
+            <div className="sm:w-[600px] mx-auto pl-4 lg:pl-0">
+              <div className="min-w-sm lg:w-[600px] rounded-xl py-4 sm:pl-10">
+                <h4 className="text-xl py-1 text-gray-600 font-medium md:text-3xl">AI Support Chatbot with Jira Integration</h4>
+                <div className="flex text-gray-600 hover:text-teal-500 cursor-pointer">
+                  <CiLink className="text-2xl"/>
+                  <p className="px-1 font-medium">Github</p>
+                </div>
+                <p className="text-gray-600 md:text-lg">A customer support chatbot that leverages OpenAI's large language models (LLMs) to address AWS Glue-related issues and automate ticket creation in JIRA.</p>
+              <div className="flex gap-3 pt-5">
+                <div className="bg-teal-400 px-3 py-1 text-teal-900 font-bold rounded-3xl text-[11px] sm:text-[16px] my-auto">
+                  <p>Python</p>
+                </div>
+                <div className="bg-teal-400 px-3 py-1 text-teal-900 font-bold rounded-3xl text-[11px] sm:text-[16px] my-auto text-nowrap">
+                  <p>OpenAI API</p>
+                </div>
+                <div className="bg-teal-400 px-3 py-1 text-teal-900 font-bold rounded-3xl text-[11px] sm:text-[16px] my-auto text-nowrap">
+                  <p>Jira API</p>
+                </div>
+              </div>
+            </div>
+              <div className="min-w-sm lg:w-[600px] rounded-xl pt-6 sm:pl-10">
+                <h4 className="text-xl pt-3 pb-1 text-gray-600 font-medium md:text-3xl">Capstone Documents Approval System</h4>
+                <div className="flex text-gray-600 hover:text-teal-500 cursor-pointer">
+                  <CiLink className="text-2xl"/>
+                  <p className="px-1 font-medium">Github</p>
+                </div>
+                <p className="text-gray-600 md:text-lg">A submission and approval system designed to streamline the management of capstone documents.</p>
+                <div className="flex gap-3 pt-5">
+                  <div className="bg-teal-400 px-3 py-1 text-teal-900 font-bold rounded-3xl text-[11px] sm:text-[16px] my-auto text-nowrap">
+                    <p>HTML / CSS</p>
+                  </div>
+                  <div className="bg-teal-400 px-3 py-1 text-teal-900 font-bold rounded-3xl text-[11px] sm:text-[16px] my-auto text-nowrap">
+                    <p>Node JS / Express</p>
+                  </div>
+                  <div className="bg-teal-400 px-3 py-1 text-teal-900 font-bold rounded-3xl text-[11px] sm:text-[16px] my-auto">
+                    <p>MySQL</p>
+                  </div>
+              </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section>
+          <div className="lg:p-20 py-20" id="experience">
+            <h3 className="text-4xl lg:text-6xl py-5 font-bold text-teal-700">Experience</h3>
+            <div className="pl-4 lg:pl-10 sm:w-[600px] mx-auto pt-5">
+              <div>
+                <p className="text-gray-600 text-light">March 2024 - June 2024</p>
+                <h4 className="text-xl py-2 text-gray-600 font-medium md:text-3xl">Data Engineer Intern at Info Alchemy</h4>
+                <p className="text-gray-600 md:text-lg">Studied fundamentals of data engineering and developed data validation scripts in AWS Glue.</p>
+              </div>
+                <div className="flex pt-5 gap-3 items-start">
+                  <div className="bg-teal-400 px-3 py-1 text-teal-900 font-bold rounded-3xl text-[11px] sm:text-[16px] my-auto">
+                    <p>Python</p>
+                  </div>
+                  <div className="bg-teal-400 px-3 py-1 text-teal-900 font-bold rounded-3xl text-[11px] sm:text-[16px] my-auto">
+                    <p>SQL</p>
+                  </div>
+                  <div className="bg-teal-400 px-3 py-1 text-teal-900 font-bold rounded-3xl text-[11px] sm:text-[16px] my-auto">
+                    <p>AWS</p>
+                  </div>
+              </div>
+            </div>
+          </div>
+        </section>
       </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
     </div>
   );
 }
