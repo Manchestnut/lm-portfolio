@@ -1,5 +1,4 @@
 'use client';
-import Head from "next/head";
 import { TiAdjustContrast } from "react-icons/ti";
 import { AiFillLinkedin, AiFillInstagram, AiFillGithub } from "react-icons/ai";
 import { MdDarkMode, MdOutlineDarkMode } from "react-icons/md";
@@ -17,15 +16,11 @@ export default function Home() {
       window.scrollY > 50 ? setScrolled(true) : setScrolled(false)
     };
     window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
+    // return () => window.removeEventListener("scroll", handleScroll);
   }, []);
   return (
     <div className={darkMode ? 'dark' : ''}>
-      <Head>
-        <title>Portfolio na malupet</title>
-        <meta name="description"></meta>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
+
       <nav className={`h-24 mb-44 fixed w-full ${scrolled ? "bg-teal-100 bg-opacity-50" : "bg-teal-200"} z-10`}>
         <ul className="flex justify-center gap-8 md:gap-12 items-center h-full text-lg md:text-2xl font-extrabold text-teal-800">
           <li className=""><a href="#home">Home</a></li>
@@ -36,7 +31,7 @@ export default function Home() {
       <main className="bg-white px-10 dark:bg-gray-950 pt-52" id="home">
         <section className="min-h-screen">
           <div className="w-10 flex justify-center p-2 fixed bottom-4 right-4" onClick={() => setDarkMode(!darkMode)}>
-            <Icon className="cursor-pointer text-2xl" />
+            <Icon className="cursor-pointer text-2xl dark:text-white" />
           </div>
           <div className="text-center pb-10">
             <h2 className="text-5xl py-2 text-teal-600 font-medium text-center">Luke Manongsong</h2>
@@ -54,9 +49,9 @@ export default function Home() {
         </section>
         <section>
           <div className="lg:py-15 lg:px-20 py-20" id="projects">
-            <h3 className="text-4xl lg:text-6xl py-5 font-bold text-teal-700">Projects</h3>
-            <div className="sm:w-[600px] mx-auto pl-4 lg:pl-0">
-              <div className="min-w-sm lg:w-[600px] rounded-xl py-4 sm:pl-10">
+            <h3 className="text-4xl lg:text-6xl py-5 md:mb-5 font-bold text-teal-700">Projects</h3>
+            <div className="sm:w-[600px] md:mx-auto ml-1 lg:pl-0">
+              <div className="min-w-sm lg:w-[600px] py-4 sm:pl-10 border-teal-600 md:border-l-4 border-l-2 pl-4">
                 <h4 className="text-xl py-1 text-gray-600 font-medium md:text-3xl">AI Support Chatbot with Jira Integration</h4>
                 <div className="flex text-gray-600 hover:text-teal-500 cursor-pointer">
                   <CiLink className="text-2xl"/>
@@ -75,8 +70,8 @@ export default function Home() {
                 </div>
               </div>
             </div>
-              <div className="min-w-sm lg:w-[600px] rounded-xl pt-6 sm:pl-10">
-                <h4 className="text-xl pt-3 pb-1 text-gray-600 font-medium md:text-3xl">Capstone Documents Approval System</h4>
+              <div className="min-w-sm lg:w-[600px] mt-6 py-4 sm:pl-10 md:border-l-4 border-teal-600 border-l-2 pl-4">
+                <h4 className="text-xl pb-1 text-gray-600 font-medium md:text-3xl">Capstone Documents Approval System</h4>
                 <div className="flex text-gray-600 hover:text-teal-500 cursor-pointer">
                   <CiLink className="text-2xl"/>
                   <p className="px-1 font-medium">Github</p>
@@ -98,9 +93,9 @@ export default function Home() {
           </div>
         </section>
         <section>
-          <div className="lg:p-20 py-20" id="experience">
-            <h3 className="text-4xl lg:text-6xl py-5 font-bold text-teal-700">Experience</h3>
-            <div className="pl-4 lg:pl-10 sm:w-[600px] mx-auto pt-5">
+          <div className="lg:pb-72 lg:px-20 py-20" id="experience">
+            <h3 className="text-4xl lg:text-6xl py-5 md:mb-5 font-bold text-teal-700">Experience</h3>
+            <div className="pl-4 lg:pl-10 sm:w-[600px] md:mx-auto py-4 border-teal-600 md:border-l-4 border-l-2 ml-1">
               <div>
                 <p className="text-gray-600 text-light">March 2024 - June 2024</p>
                 <h4 className="text-xl py-2 text-gray-600 font-medium md:text-3xl">Data Engineer Intern at Info Alchemy</h4>
