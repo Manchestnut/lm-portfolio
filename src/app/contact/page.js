@@ -1,45 +1,14 @@
 'use client';
-import { TiAdjustContrast } from "react-icons/ti";
 import { AiFillLinkedin, AiFillInstagram, AiFillGithub } from "react-icons/ai";
 import { MdDarkMode, MdOutlineDarkMode } from "react-icons/md";
-import { IoDownloadOutline } from "react-icons/io5";
-import { CiLink } from "react-icons/ci";
 import Image from "next/image";
 import { useState, useEffect } from 'react';
 import { motion } from "motion/react";
-import { useInView } from "react-intersection-observer";
 import Link from 'next/link';
 
 export default function Home() {
   const [darkMode, setDarkMode] = useState(false);
   const Icon = darkMode ? MdOutlineDarkMode : MdDarkMode;
-  const [projectsRef, projectsInView] = useInView({
-    triggerOnce: true,
-    threshold: 0.2,
-  });
-  const [experienceRef, experienceInView] = useInView({
-    triggerOnce: true,
-    threshold: 0.2,
-  });
-  const [homeNavRef, homeNavInView] = useInView({
-    triggerOnce: false,
-    threshold: 0.6
-  });
-  const [projectsNavRef, projectsNavInView] = useInView({
-    triggerOnce: false,
-    threshold: 0.6
-  });
-  const [experienceNavRef, experienceNavInView] = useInView({
-    triggerOnce: false,
-    threshold: 0.6
-  });
-  const [activeSection, setActiveSection] = useState("");
-
-  useEffect(() => {
-    if (homeNavInView) setActiveSection("home")
-    else if (projectsNavInView) setActiveSection("projects")
-    else if (experienceNavInView) setActiveSection("experience")
-  }, [homeNavInView, projectsNavInView, experienceNavInView])
   return (
     <div className={darkMode ? 'dark' : ''}>
       <nav className={`fixed top-5 left-1/2 transform -translate-x-1/2 lg:w-auto lg:px-6 lg:py-2 py-1 px-2 bg-teal-500 rounded-3xl z-10`}>

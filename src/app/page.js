@@ -3,6 +3,7 @@ import { TiAdjustContrast } from "react-icons/ti";
 import { AiFillLinkedin, AiFillInstagram, AiFillGithub } from "react-icons/ai";
 import { MdDarkMode, MdOutlineDarkMode } from "react-icons/md";
 import { IoDownloadOutline } from "react-icons/io5";
+import { FaArrowRightLong } from "react-icons/fa6";
 import { CiLink } from "react-icons/ci";
 import Image from "next/image";
 import { useState, useEffect } from 'react';
@@ -73,19 +74,17 @@ export default function Home() {
           >
             <h2 className="text-5xl py-2 text-teal-600 font-medium text-center">Luke Manongsong</h2>
             <h3 className="text-2xl py-5 md:text-3xl font-medium text-teal-800">Web Developer</h3>
-            <p className="text-medium py-5 leading-8 text-gray-800 md:text-xl">Recent graduate with a passion for programming and web development.</p>
-            <div className="flex justify-center gap-4 py-6">
-            <motion.button   
-            whileHover={{ scale: 1.1 }}
-            whileTap={{ scale: 0.95 }}
-            className="px-4 py-2 bg-gradient-to-r from-cyan-800 to-teal-600 text-white rounded-md"><Link href="/contact">Get in touch</Link></motion.button>
-            <button className="flex gap-1 items-center bg-gradient-to-r from-cyan-500 to-teal-500 text-white px-4 py-2 rounded-md text-nowrap cursor-pointer"><IoDownloadOutline className="text-lg" />Download CV</button>
-
+            <p className="text-medium py-5 leading-8 text-gray-600 md:text-lg ">Recent graduate with a passion for programming and web development.</p>
+            <div className="lg:flex grid-cols-2 grid justify-center gap-4 py-6 items-center">
+              <Link href="/contact">
+              <motion.button   
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.95 }}
+              className="px-4 py-2 bg-gradient-to-r from-cyan-800 to-teal-600 text-white rounded-md flex items-center gap-2 text-sm md:text-base">Get in touch <FaArrowRightLong /></motion.button></Link>
+              <button className="flex gap-1 items-center bg-gradient-to-r from-cyan-500 to-teal-500 text-white px-4 py-2 rounded-md text-nowrap cursor-pointer text-sm md:text-base"><IoDownloadOutline className="text-lg" />Download CV</button>
+              <motion.div whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.95 }} className="ml-auto md:ml-0"><AiFillLinkedin className="text-5xl text-teal-900 cursor-pointer"/></motion.div>
+              <motion.div whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.95 }} className="mr-auto md:mr-0"><AiFillGithub className="text-5xl text-teal-900 cursor-pointer"/></motion.div>
             </div>
-          <div className="text-5xl flex justify-center gap-16 py-3 text-gray-600">
-            <AiFillLinkedin/>
-            <AiFillInstagram/>
-          </div>
           </motion.div>
           {/* <div className="relative mx-auto bg-gradient-to-b from-teal-500 rounded-full w-80 h-80 mt-20 overflow-hidden z-0">
             <Image src={'/dev-ed-wave.png'} alt="Waving person" layout="fill" objectFit="cover"/>
