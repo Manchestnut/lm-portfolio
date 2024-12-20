@@ -1,11 +1,8 @@
 'use client';
-import { TiAdjustContrast } from "react-icons/ti";
 import { AiFillLinkedin, AiFillInstagram, AiFillGithub } from "react-icons/ai";
-import { MdDarkMode, MdOutlineDarkMode } from "react-icons/md";
 import { IoDownloadOutline } from "react-icons/io5";
 import { FaArrowRightLong } from "react-icons/fa6";
 import { CiLink } from "react-icons/ci";
-import Image from "next/image";
 import { useState, useEffect } from 'react';
 import { motion } from "motion/react";
 import { useInView } from "react-intersection-observer";

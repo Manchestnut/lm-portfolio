@@ -12,6 +12,19 @@ export async function POST(req) {
       },
     });
 
+    // Verify connection configuration
+    await new Promise((resolve, reject) => {
+      transporter.verify((error, success) => {
+        if (error) {
+          console.error('Error verifying transporter:', error);
+          reject(error);
+        } else {
+          console.log('Server is ready to take our messages');
+          resolve(success);
+        }
+      });
+    });
+
     const mailOptions = {
       from: email,
       to: 'luke.manongsong@gmail.com',
@@ -20,7 +33,17 @@ export async function POST(req) {
     };
 
     // Send the email
-    await transporter.sendMail(mailOptions);
+    await new Promise((resolve, reject) => {
+      transporter.sendMail(mailOptions, (err, info) => {
+        if (err) {
+          console.error('Error sending email:', err);
+          reject(err);
+        } else {
+          console.log('Email sent successfully:', info);
+          resolve(info);
+        }
+      });
+    });
 
     return new Response('Email sent successfully', { status: 200 });
   } catch (error) {
