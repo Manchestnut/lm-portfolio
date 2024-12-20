@@ -77,8 +77,8 @@ export default function Home() {
               whileTap={{ scale: 0.95 }}
               className="px-4 py-2 bg-gradient-to-r from-cyan-800 to-teal-600 text-white rounded-md flex items-center gap-2 text-sm md:text-base">Get in touch <FaArrowRightLong /></motion.button></Link>
               <button className="flex gap-1 items-center bg-gradient-to-r from-cyan-500 to-teal-500 text-white px-4 py-2 rounded-md text-nowrap cursor-pointer text-sm md:text-base"><a href="/CV_Luke_Manongsong.pdf" download className="flex items-center"><IoDownloadOutline className="text-lg" />Download CV</a></button>
-              <a href="https://www.linkedin.com/in/luke-manongsong-ba5396298/" target="_blank" rel="noopener noreferrer"><motion.div whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.95 }} className="ml-auto md:ml-0"><AiFillLinkedin className="text-5xl text-teal-900 cursor-pointer"/></motion.div></a>
-              <a href="https://github.com/luke08082000" target="_blank" rel="noopener noreferrer"><motion.div whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.95 }} className="mr-auto md:mr-0"><AiFillGithub className="text-5xl text-teal-900 cursor-pointer"/></motion.div></a>
+              <a href="https://www.linkedin.com/in/luke-manongsong-ba5396298/" target="_blank" rel="noopener noreferrer"  className="ml-auto md:ml-0"><motion.div whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.95 }}><AiFillLinkedin className="text-5xl text-teal-900 cursor-pointer"/></motion.div></a>
+              <a href="https://github.com/luke08082000" target="_blank" rel="noopener noreferrer"  className="mr-auto md:mr-0"><motion.div whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.95 }}><AiFillGithub className="text-5xl text-teal-900 cursor-pointer"/></motion.div></a>
             </div>
           </motion.div>
           {/* <div className="relative mx-auto bg-gradient-to-b from-teal-500 rounded-full w-80 h-80 mt-20 overflow-hidden z-0">
