@@ -12,8 +12,6 @@ import { useInView } from "react-intersection-observer";
 import Link from 'next/link';
 
 export default function Home() {
-  const [darkMode, setDarkMode] = useState(false);
-  const Icon = darkMode ? MdOutlineDarkMode : MdDarkMode;
   const [projectsRef, projectsInView] = useInView({
     triggerOnce: true,
     threshold: 0.2,
@@ -42,7 +40,7 @@ export default function Home() {
     else if (experienceNavInView) setActiveSection("experience")
   }, [homeNavInView, projectsNavInView, experienceNavInView])
   return (
-    <div className={darkMode ? 'dark' : ''}>
+    <div>
       <nav className="fixed top-5 left-1/2 transform -translate-x-1/2 lg:w-auto lg:px-6 lg:py-2 py-1 px-2 bg-teal-500 rounded-3xl z-10 md:block hidden">
         <ul className="flex justify-center md:gap-6 items-center h-full text-sm md:text-lg font-normal text-gray-100">
           <li className={`${
@@ -64,9 +62,6 @@ export default function Home() {
       </nav>
       <main className="bg-white px-10 dark:bg-gray-950 pb-20" >
         <section className="border-b-2 pt-44 pb-36"id="home" ref={homeNavRef}>
-          <div className="w-10 flex justify-center p-2 fixed bottom-4 right-4" onClick={() => setDarkMode(!darkMode)}>
-            <Icon className="cursor-pointer text-2xl dark:text-white" />
-          </div>
           <motion.div className="text-center pb-10"
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
@@ -81,9 +76,9 @@ export default function Home() {
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.95 }}
               className="px-4 py-2 bg-gradient-to-r from-cyan-800 to-teal-600 text-white rounded-md flex items-center gap-2 text-sm md:text-base">Get in touch <FaArrowRightLong /></motion.button></Link>
-              <button className="flex gap-1 items-center bg-gradient-to-r from-cyan-500 to-teal-500 text-white px-4 py-2 rounded-md text-nowrap cursor-pointer text-sm md:text-base"><IoDownloadOutline className="text-lg" />Download CV</button>
-              <motion.div whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.95 }} className="ml-auto md:ml-0"><AiFillLinkedin className="text-5xl text-teal-900 cursor-pointer"/></motion.div>
-              <motion.div whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.95 }} className="mr-auto md:mr-0"><AiFillGithub className="text-5xl text-teal-900 cursor-pointer"/></motion.div>
+              <button className="flex gap-1 items-center bg-gradient-to-r from-cyan-500 to-teal-500 text-white px-4 py-2 rounded-md text-nowrap cursor-pointer text-sm md:text-base"><a href="/CV_Luke_Manongsong.pdf" download className="flex items-center"><IoDownloadOutline className="text-lg" />Download CV</a></button>
+              <a href="https://www.linkedin.com/in/luke-manongsong-ba5396298/" target="_blank" rel="noopener noreferrer"><motion.div whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.95 }} className="ml-auto md:ml-0"><AiFillLinkedin className="text-5xl text-teal-900 cursor-pointer"/></motion.div></a>
+              <a href="https://github.com/luke08082000" target="_blank" rel="noopener noreferrer"><motion.div whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.95 }} className="mr-auto md:mr-0"><AiFillGithub className="text-5xl text-teal-900 cursor-pointer"/></motion.div></a>
             </div>
           </motion.div>
           {/* <div className="relative mx-auto bg-gradient-to-b from-teal-500 rounded-full w-80 h-80 mt-20 overflow-hidden z-0">
@@ -104,7 +99,7 @@ export default function Home() {
                   <h4 className="text-xl py-1 text-gray-600 font-medium md:text-3xl">AI Support Chatbot with Jira Integration</h4>
                   <div className="flex text-gray-600 hover:text-teal-500 cursor-pointer">
                     <CiLink className="text-2xl"/>
-                    <p className="px-1 font-medium">Github</p>
+                    <a className="px-1 font-medium" href="https://github.com/luke08082000/chatsight" target="_blank" rel="noopener noreferrer">Github</a>
                   </div>
                   <p className="text-gray-600 md:text-lg">A customer support chatbot that leverages OpenAI's large language models (LLMs) to address AWS Glue-related issues and automate support ticket creation in JIRA.</p>
               <div className="flex gap-3 pt-5">
@@ -123,7 +118,7 @@ export default function Home() {
                 <h4 className="text-xl pb-1 text-gray-600 font-medium md:text-3xl">Capstone Documents Approval System</h4>
                 <div className="flex text-gray-600 hover:text-teal-500 cursor-pointer">
                   <CiLink className="text-2xl"/>
-                  <p className="px-1 font-medium">Github</p>
+                  <a className="px-1 font-medium" href="https://github.com/luke08082000/SE2" target="_blank" rel="noopener noreferrer">Github</a>
                 </div>
                 <p className="text-gray-600 md:text-lg">A submission and approval system designed to streamline the management of capstone documents.</p>
                 <div className="flex gap-3 pt-5">
