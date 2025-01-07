@@ -58,7 +58,7 @@ export default function Home() {
         </ul>
       </nav>
       <main className="bg-white px-10 dark:bg-gray-950 pb-20" >
-        <section className="border-b-2 pt-44 pb-36"id="home" ref={homeNavRef}>
+        <section className="border-b-2 pt-44 pb-36 w-fit mx-auto"id="home" ref={homeNavRef}>
           <motion.div className="text-center pb-10"
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
@@ -66,8 +66,12 @@ export default function Home() {
           >
             <h2 className="text-5xl py-2 text-teal-600 font-medium text-center">Luke Manongsong</h2>
             <h3 className="text-2xl py-5 md:text-3xl font-medium text-teal-800">Web Developer</h3>
-            <p className="text-medium py-5 leading-8 text-gray-600 md:text-lg ">Recent graduate with a passion for programming and web development.</p>
-            <div className="lg:flex grid-cols-2 grid justify-center gap-4 py-6 items-center">
+            <p className="text-medium py-5 leading-8 text-gray-600 md:text-lg max-w-2xl">
+              A recent graduate with foundational experience across diverse areas, including developing AI-powered
+              solutions, building full-stack web applications, and working on data engineering projects to ensure data
+              quality.
+            </p>
+            <div className="lg:flex grid-cols-2 grid justify-center gap-4 py-6 items-center w-fit mx-auto">
               <Link href="/contact">
               <motion.button   
               whileHover={{ scale: 1.1 }}
@@ -83,25 +87,28 @@ export default function Home() {
           </div> */}
         </section>
         <motion.div 
-                ref={projectsRef}
-                initial={{ opacity: 0, y: 50 }}
-                animate={projectsInView ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 1, ease: "easeOut" }}
+          ref={projectsRef}
+          initial={{ opacity: 0, y: 50 }}
+          animate={projectsInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 1, ease: "easeOut" }}
         >
         <section className="border-b-2">
           <div className="lg:py-15 lg:px-20 pt-10 pb-24" id="projects" ref={projectsNavRef}>
             <h3 className="text-4xl lg:text-6xl py-5 md:mb-5 font-bold text-teal-700">Projects</h3>
             <div className="sm:w-[600px] md:mx-auto ml-1 lg:pl-0">
               <div className="min-w-sm lg:w-[600px] py-4 sm:pl-10 border-teal-600 md:border-l-4 border-l-2 pl-4">
-                  <h4 className="text-xl py-1 text-gray-600 font-medium md:text-3xl">AI Support Chatbot with Jira Integration</h4>
-                  <div className="flex text-gray-600 hover:text-teal-500 cursor-pointer">
+                  <h4 className="text-xl py-1 text-gray-600 font-medium md:text-3xl">LLM-powered Service Desk Chatbot</h4>
+                  <div className="flex text-gray-600 hover:text-teal-500 cursor-pointer w-fit">
                     <CiLink className="text-2xl"/>
                     <a className="px-1 font-medium" href="https://github.com/luke08082000/chatsight" target="_blank" rel="noopener noreferrer">Github</a>
                   </div>
-                  <p className="text-gray-600 md:text-lg">A customer support chatbot that leverages OpenAI's large language models (LLMs) to address AWS Glue-related issues and automate support ticket creation in JIRA.</p>
+                  <p className="text-gray-600 md:text-lg">A service desk chatbot that leverages OpenAI's large language models (LLMs) to address AWS Glue-related issues and automate support ticket creation in JIRA.</p>
               <div className="flex gap-3 pt-5">
                 <div className="bg-teal-400 px-3 py-1 text-teal-900 font-bold rounded-3xl text-[11px] sm:text-[16px] my-auto">
-                  <p>Python</p>
+                  <p>Lanchain</p>
+                </div>
+                <div className="bg-teal-400 px-3 py-1 text-teal-900 font-bold rounded-3xl text-[11px] sm:text-[16px] my-auto">
+                  <p>Chainlit</p>
                 </div>
                 <div className="bg-teal-400 px-3 py-1 text-teal-900 font-bold rounded-3xl text-[11px] sm:text-[16px] my-auto text-nowrap">
                   <p>OpenAI API</p>
@@ -113,7 +120,7 @@ export default function Home() {
             </div>
               <div className="min-w-sm lg:w-[600px] mt-6 py-4 sm:pl-10 md:border-l-4 border-teal-600 border-l-2 pl-4">
                 <h4 className="text-xl pb-1 text-gray-600 font-medium md:text-3xl">Capstone Documents Approval System</h4>
-                <div className="flex text-gray-600 hover:text-teal-500 cursor-pointer">
+                <div className="flex text-gray-600 hover:text-teal-500 cursor-pointer w-fit">
                   <CiLink className="text-2xl"/>
                   <a className="px-1 font-medium" href="https://github.com/luke08082000/SE2" target="_blank" rel="noopener noreferrer">Github</a>
                 </div>
@@ -135,10 +142,10 @@ export default function Home() {
         </section>
         </motion.div>
         <motion.div 
-                  ref={experienceRef}
-                  initial={{ opacity: 0, y: 50 }}
-                  animate={experienceInView ? { opacity: 1, y: 0 } : {}}
-                  transition={{ duration: 1, ease: "easeOut" }}
+          ref={experienceRef}
+          initial={{ opacity: 0, y: 50 }}
+          animate={experienceInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 1, ease: "easeOut" }}
         >
         <section className="border-b-2">
           <div className="pb-24 lg:px-20 pt-10" id="experience" ref={experienceNavRef}>

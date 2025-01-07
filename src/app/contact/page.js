@@ -24,7 +24,6 @@ export default function Contact() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
     const response = await fetch('/api/contact', {
       method: 'POST',
       headers: {
@@ -59,14 +58,18 @@ export default function Contact() {
         <main className="bg-white px-10">
           <section className="border-b-2">
             <div id="contact" className="lg:px-20 pb-24">
+              <div className='border-b-2'>
               <h3 className="text-4xl lg:text-6xl py-5 md:mb-5 font-bold text-teal-700 text-center">Contact me</h3>
+              </div>
               <div>
                 {/* Notification */}
-                {notification && (
-                  <div className={`mb-4 p-4 text-white rounded-md ${notification.type === 'success' ? 'bg-green-500' : 'bg-red-500'}`}>
-                    {notification.message}
-                  </div>
-                )}
+                <div className='mb-4 lg:w-1/2 mx-auto text-white min-h-12'>
+                  {notification && (
+                    <div className={`p-4 rounded-md ${notification.type === 'success' ? 'bg-green-500' : 'bg-red-500'}`}>
+                      {notification.message}
+                    </div>
+                  )}
+                </div>
                 <form onSubmit={handleSubmit} className="lg:w-1/2 mx-auto">
                   <label className="block">Name</label>
                   <input
