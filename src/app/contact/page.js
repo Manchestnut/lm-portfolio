@@ -47,7 +47,7 @@ export default function Contact() {
 
   return (
     <div>
-      <div className='py-10'>
+      <div className='py-4'>
         <Link href="/"><motion.div whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.98 }} className='mx-auto flex items-center gap-2 lg:px-4 lg:py-2 py-1 px-2 bg-teal-500 rounded-3xl text-white w-fit'><FaArrowLeftLong/>Go back to home</motion.div></Link>
       </div>
       <motion.div
@@ -58,9 +58,6 @@ export default function Contact() {
         <main className="bg-white px-10">
           <section className="border-b-2">
             <div id="contact" className="lg:px-20 pb-24">
-              <div className='border-b-2'>
-              <h3 className="text-4xl lg:text-6xl py-5 md:mb-5 font-bold text-teal-700 text-center">Contact me</h3>
-              </div>
               <div>
                 {/* Notification */}
                 <div className='mb-4 lg:w-1/2 mx-auto text-white min-h-12'>
@@ -70,46 +67,57 @@ export default function Contact() {
                     </div>
                   )}
                 </div>
-                <form onSubmit={handleSubmit} className="lg:w-1/2 mx-auto">
-                  <label className="block">Name</label>
-                  <input
-                    type="text"
-                    name="name"
-                    value={formData.name}
-                    onChange={handleChange}
-                    className="bg-slate-200 p-2.5 w-full rounded-md mb-4"
-                    placeholder="John Doe"
-                    required
-                  />
-                  <label className="block">Email</label>
-                  <input
-                    type="email"
-                    name="email"
-                    value={formData.email}
-                    onChange={handleChange}
-                    className="bg-slate-200 p-2.5 w-full rounded-md mb-4"
-                    placeholder="john@email.com"
-                    required
-                  />
-                  <label className="block">Subject</label>
-                  <input
-                    type='text'
-                    name="subject"
-                    value={formData.subject}
-                    onChange={handleChange}
-                    className="bg-slate-200 p-2.5 w-full rounded-md mb-4"
-                    required
-                  />
-                  <label className="block">Message</label>
-                  <textarea
-                    name="message"
-                    value={formData.message}
-                    onChange={handleChange}
-                    className="bg-slate-200 p-2.5 w-full rounded-md mb-4"
-                    required
-                  ></textarea>
-                  <button className="bg-teal-600 hover:bg-teal-500 text-white py-1.5 px-4 rounded-md w-full">
-                    Submit
+                <form onSubmit={handleSubmit} className="lg:w-1/2 mx-auto bg-gray-100 p-8 rounded-md border-2 ">
+                <div className='mb-4'>
+                  <p className='text-2xl font-extrabold text-gray-800'>Get In Touch</p>
+                </div>
+                  <div className="lg:flex lg:gap-4">
+                    <div className="mb-4 lg:flex-1">
+                      <label className="block text-gray-700 font-bold mb-2">Name</label>
+                      <input
+                        type="text"
+                        name="name"
+                        value={formData.name}
+                        onChange={handleChange}
+                        className="bg-white p-3 w-full rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-teal-500"
+                        required
+                      />
+                    </div>
+                    <div className="mb-4 lg:flex-1">
+                      <label className="block text-gray-700 font-bold mb-2">Email</label>
+                      <input
+                        type="email"
+                        name="email"
+                        value={formData.email}
+                        onChange={handleChange}
+                        className="bg-white p-3 w-full rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-teal-500"
+                        required
+                      />
+                    </div>
+                  </div>
+                  <div className="mb-4">
+                    <label className="block text-gray-700 font-bold mb-2">Subject</label>
+                    <input
+                      type='text'
+                      name="subject"
+                      value={formData.subject}
+                      onChange={handleChange}
+                      className="bg-white p-3 w-full rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-teal-500"
+                      required
+                    />
+                  </div>
+                  <div className="mb-4">
+                    <label className="block text-gray-700 font-bold mb-2">Message</label>
+                    <textarea
+                      name="message"
+                      value={formData.message}
+                      onChange={handleChange}
+                      className="bg-white p-3 w-full rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-teal-500"
+                      required
+                    ></textarea>
+                  </div>
+                  <button className="bg-teal-600 hover:bg-teal-500 text-white py-2 px-4 rounded-md w-full font-bold">
+                    Send Message
                   </button>
                 </form>
               </div>
