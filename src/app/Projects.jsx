@@ -15,7 +15,7 @@ export default function Projects() {
           animate={projectsInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 1, ease: "easeOut" }}
         >
-        <section className="border-b-2">
+        <section className="border-y-2">
           <div className="lg:py-15 lg:px-20 pt-10 pb-24" id="projects" ref={projectsNavRef}>
             <h3 className="text-4xl lg:text-6xl py-5 md:mb-5 font-bold text-teal-700">Projects</h3>
             <div className="sm:w-[600px] md:mx-auto ml-1 lg:pl-0">

@@ -9,7 +9,7 @@ import { useRef } from "react";
 export default function LandingPage() {
     const homeNavRef = useRef(null);
     return (
-        <section className="border-b-2 pt-44 pb-36 w-fit mx-auto"id="home" ref={homeNavRef}>
+        <section className="pt-44 pb-36 w-fit mx-auto"id="home" ref={homeNavRef}>
           <motion.div className="text-center pb-10"
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}

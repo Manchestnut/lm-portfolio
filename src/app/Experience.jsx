@@ -1,7 +1,6 @@
 'use client';
 import { motion } from "motion/react";
 import { useRef } from "react";
-
 export default function Experience() {
     const experienceNavRef = useRef(null);
     const experienceRef = useRef(null);
