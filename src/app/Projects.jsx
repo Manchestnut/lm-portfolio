@@ -1,22 +1,19 @@
 'use client';
 
-import { useRef } from "react";
+
 import { motion } from "motion/react";
 import { CiLink } from "react-icons/ci";
 
 export default function Projects() {
-    const projectsNavRef = useRef(null);
-    const projectsRef = useRef(null);
-    const projectsInView = useRef(null);
+
     return (
         <motion.div 
-          ref={projectsRef}
           initial={{ opacity: 0, y: 50 }}
-          animate={projectsInView ? { opacity: 1, y: 0 } : {}}
+          animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, ease: "easeOut" }}
         >
         <section className="border-y-2">
-          <div className="lg:py-15 lg:px-20 pt-10 pb-24" id="projects" ref={projectsNavRef}>
+          <div className="lg:py-15 lg:px-20 pt-10 pb-24" id="projects">
             <h3 className="text-4xl lg:text-6xl py-5 md:mb-5 font-bold text-teal-700">Projects</h3>
             <div className="sm:w-[600px] md:mx-auto ml-1 lg:pl-0">
               <div className="min-w-sm lg:w-[600px] py-4 sm:pl-10 border-teal-600 md:border-l-4 border-l-2 pl-4">

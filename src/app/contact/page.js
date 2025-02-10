@@ -58,7 +58,7 @@ export default function Contact() {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1, ease: "easeOut" }}
       >
-        <main className="bg-white px-10">
+        <main className="bg-white md:px-10 px-3">
           <section className="border-b-2">
             <div id="contact" className="lg:px-20 pb-24">
               <div>

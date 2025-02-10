@@ -1,19 +1,16 @@
 'use client';
 import { motion } from "motion/react";
-import { useRef } from "react";
+
 export default function Experience() {
-    const experienceNavRef = useRef(null);
-    const experienceRef = useRef(null);
-    const experienceInView = useRef(null);
+
     return (
         <motion.div 
-          ref={experienceRef}
           initial={{ opacity: 0, y: 50 }}
-          animate={experienceInView ? { opacity: 1, y: 0 } : {}}
+          animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, ease: "easeOut" }}
         >
         <section className="border-b-2">
-          <div className="pb-24 lg:px-20 pt-10" id="experience" ref={experienceNavRef}>
+          <div className="pb-24 lg:px-20 pt-10" id="experience">
             <h3 className="text-4xl lg:text-6xl py-5 md:mb-5 font-bold text-teal-700">Experience</h3>
             <div className="pl-4 lg:pl-10 sm:w-[600px] md:mx-auto py-4 border-teal-600 md:border-l-4 border-l-2 ml-1">
               <div>
