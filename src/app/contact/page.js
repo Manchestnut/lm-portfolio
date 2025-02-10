@@ -3,6 +3,7 @@ import { useState } from 'react';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 import { FaArrowLeftLong } from "react-icons/fa6";
+import { ImSpinner2 } from "react-icons/im";
 
 
 export default function Contact() {
@@ -13,6 +14,7 @@ export default function Contact() {
     message: '',
   });
   const [notification, setNotification] = useState(null);
+  const [loading, setLoading] = useState(false);
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -20,6 +22,9 @@ export default function Contact() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    setLoading(true);
+
     const response = await fetch('/api/contact', {
       method: 'POST',
       headers: {
@@ -27,6 +32,8 @@ export default function Contact() {
       },
       body: JSON.stringify(formData),
     });
+
+    setLoading(false);
 
     if (response.ok) {
       setNotification({
@@ -112,8 +119,9 @@ export default function Contact() {
                       required
                     ></textarea>
                   </div>
-                  <button className="bg-teal-600 hover:bg-teal-500 text-white py-2 px-4 rounded-md w-full font-bold">
-                    Send Message
+                  <button className="bg-teal-600 hover:bg-teal-500 text-white py-2 px-4 rounded-md w-full font-bold"
+                    disabled={loading}>
+                      {loading ? <ImSpinner2 className='animate-spin inline-block'/> : 'Send Message'}
                   </button>
                 </form>
               </div>
