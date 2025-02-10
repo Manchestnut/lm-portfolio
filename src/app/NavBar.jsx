@@ -1,53 +1,20 @@
 'use client';
-import { useState, useEffect } from 'react';
-import { useInView } from "react-intersection-observer";
+import { AiOutlineMenu } from "react-icons/ai";
+import { useState } from "react";
 export default function NavBar() {
-    const [projectsRef, projectsInView] = useInView({
-        triggerOnce: true,
-        threshold: 0.2,
-      });
-      const [experienceRef, experienceInView] = useInView({
-        triggerOnce: true,
-        threshold: 0.2,
-      });
-      const [homeNavRef, homeNavInView] = useInView({
-        triggerOnce: false,
-        threshold: 0.6
-      });
-      const [projectsNavRef, projectsNavInView] = useInView({
-        triggerOnce: false,
-        threshold: 0.6
-      });
-      const [experienceNavRef, experienceNavInView] = useInView({
-        triggerOnce: false,
-        threshold: 0.6
-      });
-      const [activeSection, setActiveSection] = useState("");
-    
-      useEffect(() => {
-        if (homeNavInView) setActiveSection("home")
-        else if (projectsNavInView) setActiveSection("projects")
-        else if (experienceNavInView) setActiveSection("experience")
-      }, [homeNavInView, projectsNavInView, experienceNavInView])
+  const [menuToggle, setMenuToggle] = useState(false);
+
+  function handleOnToggle() {
+    menuToggle ? setMenuToggle(false) : setMenuToggle(true);
+  }
     return (
-        <nav className="fixed top-5 left-1/2 transform -translate-x-1/2 lg:w-auto lg:px-6 lg:py-2 py-1 px-2 bg-teal-500 rounded-3xl z-10 md:block hidden">
-        <ul className="flex justify-center md:gap-6 items-center h-full text-sm md:text-lg font-normal text-gray-100">
-          <li className={`${
-                activeSection === "home"
-                  ? "border-b-2"
-                  : "text-gray-100"
-              } hover:text-white`}><a href="#home">Home</a></li>
-          <li className={`${
-                activeSection === "projects"
-                  ? "border-b-2"
-                  : "text-gray-100"
-              } hover:text-white`}><a href="#projects">Projects</a></li>
-          <li className={`${
-                activeSection === "experience"
-                  ? "border-b-2"
-                  : "text-gray-100"
-              } hover:text-white`}><a href="#experience">Experience</a></li>
-        </ul>
+        <nav className="md:fixed md:top-5 md:left-1/2 md:transform md:-translate-x-1/2 lg:w-auto md:px-6 md:py-2 py-4 px-2 bg-teal-500 md:rounded-3xl z-10">
+          <AiOutlineMenu className="text-3xl fill-teal-900 md:hidden ml-auto" onClick={handleOnToggle}/>
+          <ul className={menuToggle ? 'block px-2 text-gray-100' : 'hidden md:flex justify-center md:gap-6 items-center h-full text-sm md:text-lg text-gray-100'}>
+            <li className={`md:hover:text-white`}><a href="#home">Home</a></li>
+            <li className={`md:hover:text-white`}><a href="#projects">Projects</a></li>
+            <li className={`md:hover:text-white`}><a href="#experience">Experience</a></li>
+          </ul>
       </nav>
     )
 }

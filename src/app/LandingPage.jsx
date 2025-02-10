@@ -9,7 +9,7 @@ import { useRef } from "react";
 export default function LandingPage() {
     const homeNavRef = useRef(null);
     return (
-        <section className="pt-44 pb-36 w-fit mx-auto"id="home" ref={homeNavRef}>
+        <section className="md:pt-44 pt-20 pb-36 w-fit mx-auto"id="home" ref={homeNavRef}>
           <motion.div className="text-center pb-10"
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
@@ -27,7 +27,7 @@ export default function LandingPage() {
               <motion.button   
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.95 }}
-              className="px-4 py-2 bg-gradient-to-r from-cyan-800 to-teal-600 text-white rounded-md flex items-center gap-2 text-sm md:text-base">Get in touch <FaArrowRightLong /></motion.button></Link>
+              className="px-4 py-2 text-nowrap bg-gradient-to-r from-cyan-800 to-teal-600 text-white rounded-md flex items-center gap-2 text-sm md:text-base">Get in touch <FaArrowRightLong /></motion.button></Link>
               <button className="flex gap-1 items-center bg-gradient-to-r from-cyan-500 to-teal-500 text-white px-4 py-2 rounded-md text-nowrap cursor-pointer text-sm md:text-base"><a href="/CV_Luke_Manongsong.pdf" download className="flex items-center"><IoDownloadOutline className="text-lg" />Download CV</a></button>
               <a href="https://www.linkedin.com/in/luke-manongsong-ba5396298/" target="_blank" rel="noopener noreferrer"  className="ml-auto md:ml-0"><motion.div whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.95 }}><AiFillLinkedin className="text-5xl text-teal-900 cursor-pointer"/></motion.div></a>
               <a href="https://github.com/luke08082000" target="_blank" rel="noopener noreferrer"  className="mr-auto md:mr-0"><motion.div whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.95 }}><AiFillGithub className="text-5xl text-teal-900 cursor-pointer"/></motion.div></a>

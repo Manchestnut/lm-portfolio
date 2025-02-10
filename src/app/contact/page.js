@@ -15,11 +15,7 @@ export default function Contact() {
   const [notification, setNotification] = useState(null);
 
   const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData((prevState) => ({
-      ...prevState,
-      [name]: value,
-    }));
+    setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
   const handleSubmit = async (e) => {
@@ -48,7 +44,7 @@ export default function Contact() {
   return (
     <div>
       <div className='py-4'>
-        <Link href="/"><motion.div whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.98 }} className='mx-auto flex items-center gap-2 lg:px-4 lg:py-2 py-1 px-2 bg-teal-500 rounded-3xl text-white w-fit'><FaArrowLeftLong/>Go back to home</motion.div></Link>
+        <Link href="/"><motion.div whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.98 }} className='mx-auto flex items-center gap-2 md:px-4 md:py-2 py-2 px-3 bg-teal-500 rounded-3xl text-white w-fit'><FaArrowLeftLong/>Go back to home</motion.div></Link>
       </div>
       <motion.div
         initial={{ opacity: 0, y: 30 }}
